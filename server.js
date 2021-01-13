@@ -1,10 +1,12 @@
+const { json } = require("body-parser");
 const express = require("express");
-const bodyParser = require("body-parser");
-const request = require("request");
+// const bodyParser = require("body-parser");
+// const request = require("request");
 
 const app = express();
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
+app.use(json());
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");

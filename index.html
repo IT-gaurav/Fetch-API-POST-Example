@@ -3,27 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Fetch API Post</title>
   </head>
   <body>
-    <h1><center>Hello</center></h1>
-    <button class="fet">Fetch</button>
+    <center>
+      <h1>Fetch API Post Example</h1>
+      <button class="fet">Fetch</button>
+    </center>
     <script>
       const fet = document.querySelector(".fet");
       fet.onclick = async () => {
         // console.log("Hello Kan");
-        const data = { Kan: "kan" };
+        let captcha = "ascdads";
+        const data = { captcha };
         const options = {
           method: "POST",
+          // mode: "no-cors",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(data),
         };
-        const res = await fetch("/post", options);
-        console.log("res::", res);
-        const da = await res.json();
-        console.log("data::", da);
+        console.log("options.body::: ", options.body);
+        const res = await fetch("http://localhost:3000/post", options);
       };
     </script>
   </body>
