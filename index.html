@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1><center>Hello</center></h1>
+    <button class="fet">Fetch</button>
+    <script>
+      const fet = document.querySelector(".fet");
+      fet.onclick = async () => {
+        // console.log("Hello Kan");
+        const data = { Kan: "kan" };
+        const options = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        };
+        const res = await fetch("/post", options);
+        console.log("res::", res);
+        const da = await res.json();
+        console.log("data::", da);
+      };
+    </script>
+  </body>
+</html>
